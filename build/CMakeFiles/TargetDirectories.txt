@@ -1,0 +1,11 @@
+/home/auhnewzhong/mlir_example/build/CMakeFiles/intrinsics_gen.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/vt_gen.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/omp_gen.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/acc_gen.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/ARMTargetParserTableGen.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/AArch64TargetParserTableGen.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/RISCVTargetParserTableGen.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/mlir-example.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/mlir-dl-example.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/edit_cache.dir
+/home/auhnewzhong/mlir_example/build/CMakeFiles/rebuild_cache.dir

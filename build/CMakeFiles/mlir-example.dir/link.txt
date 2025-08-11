@@ -1,0 +1,1 @@
+/usr/lib/ccache/c++ -g "CMakeFiles/mlir-example.dir/src/simple_main.cpp.o" -o mlir-example
