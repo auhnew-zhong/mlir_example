@@ -5,18 +5,22 @@
 
 set -e  # Exit on any error
 
-# LLVM Installation Path
-export LLVM_DIR="/home/auhnewzhong/llvm-project/install"
-export PATH="$LLVM_DIR/bin:$PATH"
-export LD_LIBRARY_PATH="$LLVM_DIR/lib:$LD_LIBRARY_PATH"
+# LLVM Installation Path (optional)
+LLVM_DIR_DEFAULT="/home/auhnewzhong/llvm-project/install"
+USE_LLVM_HINTS="OFF"
+if [ -d "$LLVM_DIR_DEFAULT" ]; then
+    export LLVM_DIR="$LLVM_DIR_DEFAULT"
+    export PATH="$LLVM_DIR/bin:$PATH"
+    export LD_LIBRARY_PATH="$LLVM_DIR/lib:$LD_LIBRARY_PATH"
+    USE_LLVM_HINTS="ON"
+fi
 
 echo "=== MLIR Project Build Script ==="
-echo "LLVM Installation: $LLVM_DIR"
-
-# Check if LLVM installation exists
-if [ ! -d "$LLVM_DIR" ]; then
-    echo "Error: LLVM installation not found at $LLVM_DIR"
-    exit 1
+if [ "$USE_LLVM_HINTS" = "ON" ]; then
+    echo "LLVM Installation: $LLVM_DIR"
+else
+    echo "LLVM installation hint not found at $LLVM_DIR_DEFAULT"
+    echo "Proceeding without LLVM/MLIR hints (will build simplified version)"
 fi
 
 # Create build directory
@@ -30,10 +34,15 @@ mkdir -p "$BUILD_DIR"
 cd "$BUILD_DIR"
 
 echo "Configuring with CMake..."
-cmake .. \
-    -DCMAKE_BUILD_TYPE=Debug \
-    -DLLVM_DIR="$LLVM_DIR/lib/cmake/llvm" \
-    -DMLIR_DIR="$LLVM_DIR/lib/cmake/mlir"
+if [ "$USE_LLVM_HINTS" = "ON" ]; then
+    cmake .. \
+        -DCMAKE_BUILD_TYPE=Debug \
+        -DLLVM_DIR="$LLVM_DIR/lib/cmake/llvm" \
+        -DMLIR_DIR="$LLVM_DIR/lib/cmake/mlir"
+else
+    cmake .. \
+        -DCMAKE_BUILD_TYPE=Debug
+fi
 
 echo "Building project..."
 make -j$(nproc)

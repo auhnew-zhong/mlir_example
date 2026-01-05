@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/auhnewzhong/mlir_example/src/simple_main.cpp" "CMakeFiles/mlir-example.dir/src/simple_main.cpp.o" "gcc" "CMakeFiles/mlir-example.dir/src/simple_main.cpp.o.d"
+  "/home/auhnewzhong/mlir_example/src/main.cpp" "CMakeFiles/mlir-example.dir/src/main.cpp.o" "gcc" "CMakeFiles/mlir-example.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

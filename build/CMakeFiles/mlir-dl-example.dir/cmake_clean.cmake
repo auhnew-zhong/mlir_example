@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/mlir-dl-example.dir/src/deep_learning/dl_main.cpp.o"
   "CMakeFiles/mlir-dl-example.dir/src/deep_learning/dl_main.cpp.o.d"
+  "ToyOps.cpp.inc"
+  "ToyOps.h.inc"
+  "ToyOpsDialect.cpp.inc"
+  "ToyOpsDialect.h.inc"
   "mlir-dl-example"
   "mlir-dl-example.pdb"
 )

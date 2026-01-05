@@ -1,5 +1,6 @@
 #include "mlir/Dialect/Arith/IR/Arith.h"
 #include "mlir/Dialect/ControlFlow/IR/ControlFlow.h"
+#include "mlir/Dialect/ControlFlow/IR/ControlFlowOps.h"
 #include "mlir/Dialect/Func/IR/FuncOps.h"
 #include "mlir/Dialect/LLVMIR/LLVMDialect.h"
 #include "mlir/Dialect/MemRef/IR/MemRef.h"
@@ -13,20 +14,31 @@
 #include "mlir/Parser/Parser.h"
 #include "mlir/Pass/Pass.h"
 #include "mlir/Pass/PassManager.h"
+#include "mlir/Conversion/ArithToLLVM/ArithToLLVM.h"
+#include "mlir/Conversion/ControlFlowToLLVM/ControlFlowToLLVM.h"
+#include "mlir/Conversion/FuncToLLVM/ConvertFuncToLLVMPass.h"
+#include "mlir/Conversion/ReconcileUnrealizedCasts/ReconcileUnrealizedCasts.h"
+#include "mlir/Target/LLVMIR/Dialect/Builtin/BuiltinToLLVMIRTranslation.h"
 #include "mlir/Target/LLVMIR/Dialect/LLVMIR/LLVMToLLVMIRTranslation.h"
 #include "mlir/Target/LLVMIR/Export.h"
 #include "mlir/Transforms/Passes.h"
+
+#include "ToyOpsDialect.h.inc"
+#define GET_OP_CLASSES
+#include "ToyOps.h.inc"
 
 #include "llvm/ADT/StringRef.h"
 #include "llvm/IR/Module.h"
 #include "llvm/Support/CommandLine.h"
 #include "llvm/Support/ErrorOr.h"
+#include "llvm/Support/Error.h"
 #include "llvm/Support/MemoryBuffer.h"
 #include "llvm/Support/SourceMgr.h"
 #include "llvm/Support/TargetSelect.h"
 #include "llvm/Support/raw_ostream.h"
 
 #include <iostream>
+#include <cstdint>
 #include <memory>
 
 using namespace mlir;
@@ -131,12 +143,13 @@ int main(int argc, char **argv) {
     
     std::cout << "=== MLIR Code Generation Example ===" << std::endl;
     
-    // Create MLIR context and register dialects
     MLIRContext context;
     context.getOrLoadDialect<arith::ArithDialect>();
+    context.getOrLoadDialect<cf::ControlFlowDialect>();
     context.getOrLoadDialect<func::FuncDialect>();
     context.getOrLoadDialect<LLVM::LLVMDialect>();
     context.getOrLoadDialect<memref::MemRefDialect>();
+    context.getOrLoadDialect<toy::ToyDialect>();
     
     // Create simple add module
     std::cout << "\n1. Creating simple add function..." << std::endl;
@@ -162,16 +175,47 @@ int main(int argc, char **argv) {
         std::cout << "\nMLIR saved to output.mlir" << std::endl;
     }
     
+    // Demonstrate toy dialect operations
+    {
+        auto loc = UnknownLoc::get(&context);
+        OpBuilder builder(&context);
+        ModuleOp toyModule = ModuleOp::create(loc);
+        builder.setInsertionPointToEnd(toyModule.getBody());
+        Type f64 = builder.getF64Type();
+        Value a = builder.create<toy::ConstantOp>(loc, f64, builder.getF64FloatAttr(1.25));
+        Value b = builder.create<toy::ConstantOp>(loc, f64, builder.getF64FloatAttr(2.75));
+        Value s = builder.create<toy::AddOp>(loc, f64, a, b);
+        (void)s;
+        if (failed(verify(toyModule))) {
+            std::cerr << "Failed to verify toy module" << std::endl;
+            return 1;
+        }
+        std::cout << "\nGenerated MLIR for toy dialect:" << std::endl;
+        toyModule.print(llvm::outs());
+    }
+
     // Convert to LLVM IR
     std::cout << "\n2. Converting to LLVM IR..." << std::endl;
-    
-    // Register translation
+
+    auto loweredModule = cast<ModuleOp>(addModule->clone());
+    {
+        PassManager pm(&context);
+        pm.enableVerifier(true);
+        pm.addPass(mlir::createConvertFuncToLLVMPass());
+        pm.addPass(mlir::createArithToLLVMConversionPass());
+        pm.addPass(mlir::createConvertControlFlowToLLVMPass());
+        pm.addPass(mlir::createReconcileUnrealizedCastsPass());
+        if (failed(pm.run(loweredModule))) {
+            std::cerr << "Failed to lower to LLVM dialect" << std::endl;
+            return 1;
+        }
+    }
+
     registerBuiltinDialectTranslation(context);
     registerLLVMDialectTranslation(context);
-    
-    // Convert MLIR to LLVM IR
+
     llvm::LLVMContext llvmContext;
-    auto llvmModule = translateModuleToLLVMIR(addModule, llvmContext);
+    auto llvmModule = translateModuleToLLVMIR(loweredModule, llvmContext);
     if (!llvmModule) {
         std::cerr << "Failed to convert to LLVM IR" << std::endl;
         return 1;
@@ -192,25 +236,45 @@ int main(int argc, char **argv) {
     
     // Create and run JIT execution engine
     std::cout << "\n3. Creating JIT execution engine..." << std::endl;
-    
-    auto maybeEngine = mlir::ExecutionEngine::create(addModule);
+
+    mlir::ExecutionEngineOptions engineOptions;
+    engineOptions.llvmModuleBuilder = [&](mlir::Operation *op,
+                                          llvm::LLVMContext &llvmCtx)
+        -> std::unique_ptr<llvm::Module> {
+        auto clonedModule = cast<mlir::ModuleOp>(op->clone());
+        PassManager pm(clonedModule.getContext());
+        pm.enableVerifier(true);
+        pm.addPass(mlir::createConvertFuncToLLVMPass());
+        pm.addPass(mlir::createArithToLLVMConversionPass());
+        pm.addPass(mlir::createConvertControlFlowToLLVMPass());
+        pm.addPass(mlir::createReconcileUnrealizedCastsPass());
+        if (failed(pm.run(clonedModule)))
+            return {};
+        return translateModuleToLLVMIR(clonedModule, llvmCtx);
+    };
+
+    auto maybeEngine = mlir::ExecutionEngine::create(addModule, engineOptions);
     if (!maybeEngine) {
-        std::cerr << "Failed to create execution engine" << std::endl;
+        std::cerr << "Failed to create execution engine: "
+                  << llvm::toString(maybeEngine.takeError()) << std::endl;
         return 1;
     }
     
     auto &engine = maybeEngine.get();
-    
+
     // Invoke the JIT-compiled function
     std::cout << "\n4. Executing JIT-compiled function..." << std::endl;
     
-    auto invocationResult = engine->invokePacked("add", 42, 24);
-    if (invocationResult) {
-        std::cerr << "JIT invocation failed" << std::endl;
+    int32_t a0 = 42;
+    int32_t a1 = 24;
+    int32_t out = 0;
+    void *args[] = {&a0, &a1, &out};
+    if (auto err = engine->invokePacked("add", args)) {
+        std::cerr << "JIT invocation failed: " << llvm::toString(std::move(err)) << std::endl;
         return 1;
     }
     
-    std::cout << "Result of add(42, 24) = 66" << std::endl;
+    std::cout << "Result of add(42, 24) = " << out << std::endl;
     
     std::cout << "\n=== MLIR Example Completed Successfully ===" << std::endl;
     

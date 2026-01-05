@@ -7,12 +7,20 @@
 
 ### 1.2 编译深度学习示例
 ```bash
-# 编译包含深度学习示例的项目
+# 编译项目（同时生成基础MLIR示例与深度学习示例）
 ./build.sh
 
-# 运行深度学习示例
-./build/mlir-dl-example
+# 运行基础MLIR示例（演示算术方言、Toy方言和JIT）
+./run.sh
+
+# 运行深度学习示例（生成完整神经网络的MLIR表示）
+./run_deep_learning.sh
 ```
+
+> 提示：基础示例会打印三块内容：
+> - 使用 `arith`/`func` 方言生成的 `add` 函数 MLIR
+> - 使用自定义 `toy` 方言生成的标量加法 MLIR
+> - 将 MLIR 转成 LLVM IR 并通过 ExecutionEngine 进行 JIT 执行
 
 ## 2. 核心概念
 
@@ -53,7 +61,7 @@ Linalg方言是深度学习操作的核心，提供了高级线性代数抽象�
 
 ## 3. 实践示例
 
-### 3.1 构建简单神经网络
+### 3.1 构建简单神经网络（对应 `dl_main.cpp` 中的线性层）
 
 #### 步骤1：定义线性层
 ```mlir
@@ -120,7 +128,7 @@ func.func @mlp(%input: tensor<32x784xf32>) -> tensor<32x10xf32> {
 }
 ```
 
-### 3.2 卷积神经网络
+### 3.2 卷积神经网络（对应 `dl_main.cpp` 中的卷积与池化）
 
 #### 卷积层实现
 ```mlir
@@ -149,7 +157,7 @@ func.func @max_pool(%input: tensor<1x26x26x32xf32>) -> tensor<1x13x13x32xf32> {
 }
 ```
 
-## 4. 优化技术
+## 4. 优化技术（与生成的 deep_learning_output.mlir 对应）
 
 ### 4.1 算子融合
 将多个连续操作融合为单个高效kernel：

@@ -1,3 +1,9 @@
+file(REMOVE_RECURSE
+  "ToyOps.cpp.inc"
+  "ToyOps.h.inc"
+  "ToyOpsDialect.cpp.inc"
+  "ToyOpsDialect.h.inc"
+)
 
 # Per-language clean rules from dependency scanning.
 foreach(lang )

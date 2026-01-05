@@ -72,29 +72,124 @@ include CMakeFiles/mlir-example.dir/flags.make
 CMakeFiles/mlir-example.dir/codegen:
 .PHONY : CMakeFiles/mlir-example.dir/codegen
 
-CMakeFiles/mlir-example.dir/src/simple_main.cpp.o: CMakeFiles/mlir-example.dir/flags.make
-CMakeFiles/mlir-example.dir/src/simple_main.cpp.o: /home/auhnewzhong/mlir_example/src/simple_main.cpp
-CMakeFiles/mlir-example.dir/src/simple_main.cpp.o: CMakeFiles/mlir-example.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mlir-example.dir/src/simple_main.cpp.o"
-	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlir-example.dir/src/simple_main.cpp.o -MF CMakeFiles/mlir-example.dir/src/simple_main.cpp.o.d -o CMakeFiles/mlir-example.dir/src/simple_main.cpp.o -c /home/auhnewzhong/mlir_example/src/simple_main.cpp
+CMakeFiles/mlir-example.dir/src/main.cpp.o: CMakeFiles/mlir-example.dir/flags.make
+CMakeFiles/mlir-example.dir/src/main.cpp.o: /home/auhnewzhong/mlir_example/src/main.cpp
+CMakeFiles/mlir-example.dir/src/main.cpp.o: CMakeFiles/mlir-example.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mlir-example.dir/src/main.cpp.o"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mlir-example.dir/src/main.cpp.o -MF CMakeFiles/mlir-example.dir/src/main.cpp.o.d -o CMakeFiles/mlir-example.dir/src/main.cpp.o -c /home/auhnewzhong/mlir_example/src/main.cpp
 
-CMakeFiles/mlir-example.dir/src/simple_main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mlir-example.dir/src/simple_main.cpp.i"
-	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auhnewzhong/mlir_example/src/simple_main.cpp > CMakeFiles/mlir-example.dir/src/simple_main.cpp.i
+CMakeFiles/mlir-example.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mlir-example.dir/src/main.cpp.i"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auhnewzhong/mlir_example/src/main.cpp > CMakeFiles/mlir-example.dir/src/main.cpp.i
 
-CMakeFiles/mlir-example.dir/src/simple_main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mlir-example.dir/src/simple_main.cpp.s"
-	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auhnewzhong/mlir_example/src/simple_main.cpp -o CMakeFiles/mlir-example.dir/src/simple_main.cpp.s
+CMakeFiles/mlir-example.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mlir-example.dir/src/main.cpp.s"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auhnewzhong/mlir_example/src/main.cpp -o CMakeFiles/mlir-example.dir/src/main.cpp.s
 
 # Object files for target mlir-example
 mlir__example_OBJECTS = \
-"CMakeFiles/mlir-example.dir/src/simple_main.cpp.o"
+"CMakeFiles/mlir-example.dir/src/main.cpp.o"
 
 # External object files for target mlir-example
 mlir__example_EXTERNAL_OBJECTS =
 
-mlir-example: CMakeFiles/mlir-example.dir/src/simple_main.cpp.o
+mlir-example: CMakeFiles/mlir-example.dir/src/main.cpp.o
 mlir-example: CMakeFiles/mlir-example.dir/build.make
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRExecutionEngine.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRFuncToLLVM.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRArithToLLVM.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRReconcileUnrealizedCasts.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRBuiltinToLLVMIRTranslation.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRLLVMToLLVMIRTranslation.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMOrcJIT.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMX86CodeGen.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMX86AsmParser.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMX86Desc.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMX86Disassembler.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMX86Info.so.20.1
+mlir-example: libMLIRToyDialect.a
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMExecutionEngine.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMRuntimeDyld.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRExecutionEngineUtils.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIROpenMPToLLVMIRTranslation.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRTargetLLVMIRExport.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRDLTIDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRLLVMIRTransforms.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRNVVMDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRTranslateLib.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRParser.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRBytecodeReader.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRAsmParser.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIROpenMPDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIROpenACCMPCommon.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMFrontendOpenMP.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMScalarOpts.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMInstCombine.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMTransformUtils.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRControlFlowToLLVM.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRArithAttrToLLVMConversion.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRArithTransforms.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRBufferizationTransforms.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRBufferizationDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRSparseTensorDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRSCFDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRControlFlowDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRFuncTransforms.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRVectorDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRTensorDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRParallelCombiningOpInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRAffineDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRMemRefDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRArithUtils.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRComplexDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRArithDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRCastInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRInferIntRangeCommon.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRDialectUtils.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRShapedOpInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRMaskableOpInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRMaskingOpInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRVectorInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRLLVMCommonConversion.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRLLVMDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMBitWriter.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMAnalysis.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMObject.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMAsmParser.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMBitReader.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRFuncDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRTransforms.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRTransformUtils.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRSubsetOpInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRValueBoundsOpInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRDestinationStyleOpInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRRewrite.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRRewritePDL.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRPDLToPDLInterp.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRPass.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRAnalysis.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRCallInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRControlFlowInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRDataLayoutInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRInferIntRangeInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRLoopLikeInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRPresburger.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRViewLikeInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRPDLInterpDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRFunctionInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRPDLDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRSideEffectInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRInferTypeOpInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRMemorySlotInterfaces.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRRuntimeVerifiableOpInterface.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRUBDialect.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMCore.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMBinaryFormat.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMTargetParser.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRIR.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libMLIRSupport.so.20.1
+mlir-example: /home/auhnewzhong/llvm-project/install/lib/libLLVMSupport.so.20.1
 mlir-example: CMakeFiles/mlir-example.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable mlir-example"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mlir-example.dir/link.txt --verbose=$(VERBOSE)

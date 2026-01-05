@@ -1,0 +1,2 @@
+/usr/bin/ar Dqc libMLIRToyDialect.a CMakeFiles/obj.MLIRToyDialect.dir/src/dialect/toy/ToyDialect.cpp.o
+/usr/bin/ranlib -D libMLIRToyDialect.a

@@ -53,23 +53,45 @@ if(MLIR_FOUND AND LLVM_FOUND)
         MLIRAnalysis
         MLIRCallInterfaces
         MLIRCastInterfaces
+        MLIRControlFlowToLLVM
         MLIRExecutionEngine
+        MLIRFuncToLLVM
         MLIRFunctionInterfaces
         MLIRIR
+        MLIRArithToLLVM
         MLIRLLVMCommonConversion
         MLIRLLVMDialect
         MLIRMemRefDialect
         MLIRParser
         MLIRPass
+        MLIRReconcileUnrealizedCasts
         MLIRSideEffectInterfaces
         MLIRSupport
         MLIRTargetLLVMIRExport
         MLIRTransforms
         MLIRArithDialect
+        MLIRControlFlowDialect
         MLIRFuncDialect
         MLIRBuiltinToLLVMIRTranslation
         MLIRLLVMToLLVMIRTranslation
     )
+
+    set(LLVM_TARGET_DEFINITIONS ${CMAKE_CURRENT_SOURCE_DIR}/src/dialect/toy/ToyOps.td)
+    mlir_tablegen(ToyOps.h.inc -gen-op-decls)
+    mlir_tablegen(ToyOps.cpp.inc -gen-op-defs)
+    mlir_tablegen(ToyOpsDialect.h.inc -gen-dialect-decls -dialect=toy)
+    mlir_tablegen(ToyOpsDialect.cpp.inc -gen-dialect-defs -dialect=toy)
+    add_public_tablegen_target(ToyOpsIncGen)
+
+    add_mlir_dialect_library(MLIRToyDialect
+        src/dialect/toy/ToyDialect.cpp
+        DEPENDS
+        ToyOpsIncGen
+        LINK_LIBS PUBLIC
+        MLIRIR
+        MLIRSupport
+    )
+    target_include_directories(MLIRToyDialect PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
     
     # Add executable with full MLIR support
     add_executable(mlir-example
@@ -80,7 +102,9 @@ if(MLIR_FOUND AND LLVM_FOUND)
     target_link_libraries(mlir-example
         ${mlir_libs}
         ${llvm_libs}
+        MLIRToyDialect
     )
+    target_include_directories(mlir-example PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
     
     message(STATUS "Building with full MLIR support")
 else()
@@ -91,14 +115,13 @@ else()
         src/simple_main.cpp
     )
     
-    # Add deep learning example executable
-    add_executable(mlir-dl-example
-        src/deep_learning/dl_main.cpp
-    )
-    
     message(STATUS "Building with simplified MLIR demonstration")
-    message(STATUS "Building deep learning MLIR example")
 endif()
+
+# Always build deep learning MLIR example
+add_executable(mlir-dl-example
+    src/deep_learning/dl_main.cpp
+)
 
 # Set output directory
 set_target_properties(mlir-example PROPERTIES

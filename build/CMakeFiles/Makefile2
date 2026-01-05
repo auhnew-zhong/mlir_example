@@ -63,11 +63,13 @@ CMAKE_BINARY_DIR = /home/auhnewzhong/mlir_example/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/MLIRToyDialect.dir/all
 all: CMakeFiles/mlir-example.dir/all
 all: CMakeFiles/mlir-dl-example.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
+codegen: CMakeFiles/MLIRToyDialect.dir/codegen
 codegen: CMakeFiles/mlir-example.dir/codegen
 codegen: CMakeFiles/mlir-dl-example.dir/codegen
 .PHONY : codegen
@@ -84,6 +86,15 @@ clean: CMakeFiles/acc_gen.dir/clean
 clean: CMakeFiles/ARMTargetParserTableGen.dir/clean
 clean: CMakeFiles/AArch64TargetParserTableGen.dir/clean
 clean: CMakeFiles/RISCVTargetParserTableGen.dir/clean
+clean: CMakeFiles/mlir-tablegen-targets.dir/clean
+clean: CMakeFiles/mlir-headers.dir/clean
+clean: CMakeFiles/mlir-generic-headers.dir/clean
+clean: CMakeFiles/mlir-doc.dir/clean
+clean: CMakeFiles/ToyOpsIncGen.dir/clean
+clean: CMakeFiles/obj.MLIRToyDialect.dir/clean
+clean: CMakeFiles/MLIRToyDialect.dir/clean
+clean: CMakeFiles/install-MLIRToyDialect.dir/clean
+clean: CMakeFiles/install-MLIRToyDialect-stripped.dir/clean
 clean: CMakeFiles/mlir-example.dir/clean
 clean: CMakeFiles/mlir-dl-example.dir/clean
 .PHONY : clean
@@ -313,18 +324,315 @@ CMakeFiles/RISCVTargetParserTableGen.dir/clean:
 .PHONY : CMakeFiles/RISCVTargetParserTableGen.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/mlir-tablegen-targets.dir
+
+# All Build rule for target.
+CMakeFiles/mlir-tablegen-targets.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-tablegen-targets.dir/build.make CMakeFiles/mlir-tablegen-targets.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-tablegen-targets.dir/build.make CMakeFiles/mlir-tablegen-targets.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Built target mlir-tablegen-targets"
+.PHONY : CMakeFiles/mlir-tablegen-targets.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/mlir-tablegen-targets.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mlir-tablegen-targets.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/mlir-tablegen-targets.dir/rule
+
+# Convenience name for target.
+mlir-tablegen-targets: CMakeFiles/mlir-tablegen-targets.dir/rule
+.PHONY : mlir-tablegen-targets
+
+# codegen rule for target.
+CMakeFiles/mlir-tablegen-targets.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-tablegen-targets.dir/build.make CMakeFiles/mlir-tablegen-targets.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Finished codegen for target mlir-tablegen-targets"
+.PHONY : CMakeFiles/mlir-tablegen-targets.dir/codegen
+
+# clean rule for target.
+CMakeFiles/mlir-tablegen-targets.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-tablegen-targets.dir/build.make CMakeFiles/mlir-tablegen-targets.dir/clean
+.PHONY : CMakeFiles/mlir-tablegen-targets.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/mlir-headers.dir
+
+# All Build rule for target.
+CMakeFiles/mlir-headers.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-headers.dir/build.make CMakeFiles/mlir-headers.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-headers.dir/build.make CMakeFiles/mlir-headers.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Built target mlir-headers"
+.PHONY : CMakeFiles/mlir-headers.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/mlir-headers.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mlir-headers.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/mlir-headers.dir/rule
+
+# Convenience name for target.
+mlir-headers: CMakeFiles/mlir-headers.dir/rule
+.PHONY : mlir-headers
+
+# codegen rule for target.
+CMakeFiles/mlir-headers.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-headers.dir/build.make CMakeFiles/mlir-headers.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Finished codegen for target mlir-headers"
+.PHONY : CMakeFiles/mlir-headers.dir/codegen
+
+# clean rule for target.
+CMakeFiles/mlir-headers.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-headers.dir/build.make CMakeFiles/mlir-headers.dir/clean
+.PHONY : CMakeFiles/mlir-headers.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/mlir-generic-headers.dir
+
+# All Build rule for target.
+CMakeFiles/mlir-generic-headers.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-generic-headers.dir/build.make CMakeFiles/mlir-generic-headers.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-generic-headers.dir/build.make CMakeFiles/mlir-generic-headers.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Built target mlir-generic-headers"
+.PHONY : CMakeFiles/mlir-generic-headers.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/mlir-generic-headers.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mlir-generic-headers.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/mlir-generic-headers.dir/rule
+
+# Convenience name for target.
+mlir-generic-headers: CMakeFiles/mlir-generic-headers.dir/rule
+.PHONY : mlir-generic-headers
+
+# codegen rule for target.
+CMakeFiles/mlir-generic-headers.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-generic-headers.dir/build.make CMakeFiles/mlir-generic-headers.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Finished codegen for target mlir-generic-headers"
+.PHONY : CMakeFiles/mlir-generic-headers.dir/codegen
+
+# clean rule for target.
+CMakeFiles/mlir-generic-headers.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-generic-headers.dir/build.make CMakeFiles/mlir-generic-headers.dir/clean
+.PHONY : CMakeFiles/mlir-generic-headers.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/mlir-doc.dir
+
+# All Build rule for target.
+CMakeFiles/mlir-doc.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-doc.dir/build.make CMakeFiles/mlir-doc.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-doc.dir/build.make CMakeFiles/mlir-doc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Built target mlir-doc"
+.PHONY : CMakeFiles/mlir-doc.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/mlir-doc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mlir-doc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/mlir-doc.dir/rule
+
+# Convenience name for target.
+mlir-doc: CMakeFiles/mlir-doc.dir/rule
+.PHONY : mlir-doc
+
+# codegen rule for target.
+CMakeFiles/mlir-doc.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-doc.dir/build.make CMakeFiles/mlir-doc.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Finished codegen for target mlir-doc"
+.PHONY : CMakeFiles/mlir-doc.dir/codegen
+
+# clean rule for target.
+CMakeFiles/mlir-doc.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-doc.dir/build.make CMakeFiles/mlir-doc.dir/clean
+.PHONY : CMakeFiles/mlir-doc.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ToyOpsIncGen.dir
+
+# All Build rule for target.
+CMakeFiles/ToyOpsIncGen.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ToyOpsIncGen.dir/build.make CMakeFiles/ToyOpsIncGen.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ToyOpsIncGen.dir/build.make CMakeFiles/ToyOpsIncGen.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=2,3,4,5 "Built target ToyOpsIncGen"
+.PHONY : CMakeFiles/ToyOpsIncGen.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ToyOpsIncGen.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ToyOpsIncGen.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/ToyOpsIncGen.dir/rule
+
+# Convenience name for target.
+ToyOpsIncGen: CMakeFiles/ToyOpsIncGen.dir/rule
+.PHONY : ToyOpsIncGen
+
+# codegen rule for target.
+CMakeFiles/ToyOpsIncGen.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ToyOpsIncGen.dir/build.make CMakeFiles/ToyOpsIncGen.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=2,3,4,5 "Finished codegen for target ToyOpsIncGen"
+.PHONY : CMakeFiles/ToyOpsIncGen.dir/codegen
+
+# clean rule for target.
+CMakeFiles/ToyOpsIncGen.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ToyOpsIncGen.dir/build.make CMakeFiles/ToyOpsIncGen.dir/clean
+.PHONY : CMakeFiles/ToyOpsIncGen.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/obj.MLIRToyDialect.dir
+
+# All Build rule for target.
+CMakeFiles/obj.MLIRToyDialect.dir/all: CMakeFiles/mlir-headers.dir/all
+CMakeFiles/obj.MLIRToyDialect.dir/all: CMakeFiles/mlir-generic-headers.dir/all
+CMakeFiles/obj.MLIRToyDialect.dir/all: CMakeFiles/ToyOpsIncGen.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj.MLIRToyDialect.dir/build.make CMakeFiles/obj.MLIRToyDialect.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj.MLIRToyDialect.dir/build.make CMakeFiles/obj.MLIRToyDialect.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=10 "Built target obj.MLIRToyDialect"
+.PHONY : CMakeFiles/obj.MLIRToyDialect.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/obj.MLIRToyDialect.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/obj.MLIRToyDialect.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/obj.MLIRToyDialect.dir/rule
+
+# Convenience name for target.
+obj.MLIRToyDialect: CMakeFiles/obj.MLIRToyDialect.dir/rule
+.PHONY : obj.MLIRToyDialect
+
+# codegen rule for target.
+CMakeFiles/obj.MLIRToyDialect.dir/codegen: CMakeFiles/mlir-headers.dir/all
+CMakeFiles/obj.MLIRToyDialect.dir/codegen: CMakeFiles/mlir-generic-headers.dir/all
+CMakeFiles/obj.MLIRToyDialect.dir/codegen: CMakeFiles/ToyOpsIncGen.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj.MLIRToyDialect.dir/build.make CMakeFiles/obj.MLIRToyDialect.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=10 "Finished codegen for target obj.MLIRToyDialect"
+.PHONY : CMakeFiles/obj.MLIRToyDialect.dir/codegen
+
+# clean rule for target.
+CMakeFiles/obj.MLIRToyDialect.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj.MLIRToyDialect.dir/build.make CMakeFiles/obj.MLIRToyDialect.dir/clean
+.PHONY : CMakeFiles/obj.MLIRToyDialect.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/MLIRToyDialect.dir
+
+# All Build rule for target.
+CMakeFiles/MLIRToyDialect.dir/all: CMakeFiles/mlir-headers.dir/all
+CMakeFiles/MLIRToyDialect.dir/all: CMakeFiles/mlir-generic-headers.dir/all
+CMakeFiles/MLIRToyDialect.dir/all: CMakeFiles/ToyOpsIncGen.dir/all
+CMakeFiles/MLIRToyDialect.dir/all: CMakeFiles/obj.MLIRToyDialect.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLIRToyDialect.dir/build.make CMakeFiles/MLIRToyDialect.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLIRToyDialect.dir/build.make CMakeFiles/MLIRToyDialect.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=1 "Built target MLIRToyDialect"
+.PHONY : CMakeFiles/MLIRToyDialect.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/MLIRToyDialect.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MLIRToyDialect.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/MLIRToyDialect.dir/rule
+
+# Convenience name for target.
+MLIRToyDialect: CMakeFiles/MLIRToyDialect.dir/rule
+.PHONY : MLIRToyDialect
+
+# codegen rule for target.
+CMakeFiles/MLIRToyDialect.dir/codegen: CMakeFiles/mlir-headers.dir/all
+CMakeFiles/MLIRToyDialect.dir/codegen: CMakeFiles/mlir-generic-headers.dir/all
+CMakeFiles/MLIRToyDialect.dir/codegen: CMakeFiles/ToyOpsIncGen.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLIRToyDialect.dir/build.make CMakeFiles/MLIRToyDialect.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=1 "Finished codegen for target MLIRToyDialect"
+.PHONY : CMakeFiles/MLIRToyDialect.dir/codegen
+
+# clean rule for target.
+CMakeFiles/MLIRToyDialect.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLIRToyDialect.dir/build.make CMakeFiles/MLIRToyDialect.dir/clean
+.PHONY : CMakeFiles/MLIRToyDialect.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/install-MLIRToyDialect.dir
+
+# All Build rule for target.
+CMakeFiles/install-MLIRToyDialect.dir/all: CMakeFiles/MLIRToyDialect.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect.dir/build.make CMakeFiles/install-MLIRToyDialect.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect.dir/build.make CMakeFiles/install-MLIRToyDialect.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Built target install-MLIRToyDialect"
+.PHONY : CMakeFiles/install-MLIRToyDialect.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/install-MLIRToyDialect.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/install-MLIRToyDialect.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/install-MLIRToyDialect.dir/rule
+
+# Convenience name for target.
+install-MLIRToyDialect: CMakeFiles/install-MLIRToyDialect.dir/rule
+.PHONY : install-MLIRToyDialect
+
+# codegen rule for target.
+CMakeFiles/install-MLIRToyDialect.dir/codegen: CMakeFiles/MLIRToyDialect.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect.dir/build.make CMakeFiles/install-MLIRToyDialect.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Finished codegen for target install-MLIRToyDialect"
+.PHONY : CMakeFiles/install-MLIRToyDialect.dir/codegen
+
+# clean rule for target.
+CMakeFiles/install-MLIRToyDialect.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect.dir/build.make CMakeFiles/install-MLIRToyDialect.dir/clean
+.PHONY : CMakeFiles/install-MLIRToyDialect.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/install-MLIRToyDialect-stripped.dir
+
+# All Build rule for target.
+CMakeFiles/install-MLIRToyDialect-stripped.dir/all: CMakeFiles/MLIRToyDialect.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect-stripped.dir/build.make CMakeFiles/install-MLIRToyDialect-stripped.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect-stripped.dir/build.make CMakeFiles/install-MLIRToyDialect-stripped.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Built target install-MLIRToyDialect-stripped"
+.PHONY : CMakeFiles/install-MLIRToyDialect-stripped.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/install-MLIRToyDialect-stripped.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/install-MLIRToyDialect-stripped.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
+.PHONY : CMakeFiles/install-MLIRToyDialect-stripped.dir/rule
+
+# Convenience name for target.
+install-MLIRToyDialect-stripped: CMakeFiles/install-MLIRToyDialect-stripped.dir/rule
+.PHONY : install-MLIRToyDialect-stripped
+
+# codegen rule for target.
+CMakeFiles/install-MLIRToyDialect-stripped.dir/codegen: CMakeFiles/MLIRToyDialect.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect-stripped.dir/build.make CMakeFiles/install-MLIRToyDialect-stripped.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num= "Finished codegen for target install-MLIRToyDialect-stripped"
+.PHONY : CMakeFiles/install-MLIRToyDialect-stripped.dir/codegen
+
+# clean rule for target.
+CMakeFiles/install-MLIRToyDialect-stripped.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect-stripped.dir/build.make CMakeFiles/install-MLIRToyDialect-stripped.dir/clean
+.PHONY : CMakeFiles/install-MLIRToyDialect-stripped.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/mlir-example.dir
 
 # All Build rule for target.
-CMakeFiles/mlir-example.dir/all:
+CMakeFiles/mlir-example.dir/all: CMakeFiles/MLIRToyDialect.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=3,4 "Built target mlir-example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=8,9 "Built target mlir-example"
 .PHONY : CMakeFiles/mlir-example.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mlir-example.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mlir-example.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles 0
 .PHONY : CMakeFiles/mlir-example.dir/rule
@@ -336,7 +644,7 @@ mlir-example: CMakeFiles/mlir-example.dir/rule
 # codegen rule for target.
 CMakeFiles/mlir-example.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=3,4 "Finished codegen for target mlir-example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=8,9 "Finished codegen for target mlir-example"
 .PHONY : CMakeFiles/mlir-example.dir/codegen
 
 # clean rule for target.
@@ -351,7 +659,7 @@ CMakeFiles/mlir-example.dir/clean:
 CMakeFiles/mlir-dl-example.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-dl-example.dir/build.make CMakeFiles/mlir-dl-example.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-dl-example.dir/build.make CMakeFiles/mlir-dl-example.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=1,2 "Built target mlir-dl-example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=6,7 "Built target mlir-dl-example"
 .PHONY : CMakeFiles/mlir-dl-example.dir/all
 
 # Build rule for subdir invocation for target.
@@ -368,7 +676,7 @@ mlir-dl-example: CMakeFiles/mlir-dl-example.dir/rule
 # codegen rule for target.
 CMakeFiles/mlir-dl-example.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-dl-example.dir/build.make CMakeFiles/mlir-dl-example.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=1,2 "Finished codegen for target mlir-dl-example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/auhnewzhong/mlir_example/build/CMakeFiles --progress-num=6,7 "Finished codegen for target mlir-dl-example"
 .PHONY : CMakeFiles/mlir-dl-example.dir/codegen
 
 # clean rule for target.

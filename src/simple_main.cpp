@@ -186,11 +186,11 @@ int main() {
     generator.generateAddFunction();
     generator.generateMainFunction();
     generator.generateFactorialFunction();
-    
+
     // Output the generated IR
     generator.printIR();
     generator.saveToFile("output.mlir");
-    
+
     // Generate LLVM IR equivalent
     generator.generateLLVMIR();
     
@@ -201,6 +201,6 @@ int main() {
     std::cout << "Files generated:" << std::endl;
     std::cout << "- output.mlir: Generated MLIR IR" << std::endl;
     std::cout << "- output.ll: Generated LLVM IR" << std::endl;
-    
+
     return 0;
 }

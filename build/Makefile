@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"MLIRToyDialect\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/home/auhnewzhong/software/cmake-3.31.4-linux-x86_64/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/home/auhnewzhong/software/cmake-3.31.4-linux-x86_64/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/home/auhnewzhong/software/cmake-3.31.4-linux-x86_64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/home/auhnewzhong/software/cmake-3.31.4-linux-x86_64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/home/auhnewzhong/software/cmake-3.31.4-linux-x86_64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/home/auhnewzhong/software/cmake-3.31.4-linux-x86_64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/auhnewzhong/mlir_example/build/CMakeFiles /home/auhnewzhong/mlir_example/build//CMakeFiles/progress.marks
@@ -208,6 +253,123 @@ RISCVTargetParserTableGen/fast:
 .PHONY : RISCVTargetParserTableGen/fast
 
 #=============================================================================
+# Target rules for targets named mlir-tablegen-targets
+
+# Build rule for target.
+mlir-tablegen-targets: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mlir-tablegen-targets
+.PHONY : mlir-tablegen-targets
+
+# fast build rule for target.
+mlir-tablegen-targets/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-tablegen-targets.dir/build.make CMakeFiles/mlir-tablegen-targets.dir/build
+.PHONY : mlir-tablegen-targets/fast
+
+#=============================================================================
+# Target rules for targets named mlir-headers
+
+# Build rule for target.
+mlir-headers: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mlir-headers
+.PHONY : mlir-headers
+
+# fast build rule for target.
+mlir-headers/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-headers.dir/build.make CMakeFiles/mlir-headers.dir/build
+.PHONY : mlir-headers/fast
+
+#=============================================================================
+# Target rules for targets named mlir-generic-headers
+
+# Build rule for target.
+mlir-generic-headers: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mlir-generic-headers
+.PHONY : mlir-generic-headers
+
+# fast build rule for target.
+mlir-generic-headers/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-generic-headers.dir/build.make CMakeFiles/mlir-generic-headers.dir/build
+.PHONY : mlir-generic-headers/fast
+
+#=============================================================================
+# Target rules for targets named mlir-doc
+
+# Build rule for target.
+mlir-doc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mlir-doc
+.PHONY : mlir-doc
+
+# fast build rule for target.
+mlir-doc/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-doc.dir/build.make CMakeFiles/mlir-doc.dir/build
+.PHONY : mlir-doc/fast
+
+#=============================================================================
+# Target rules for targets named ToyOpsIncGen
+
+# Build rule for target.
+ToyOpsIncGen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ToyOpsIncGen
+.PHONY : ToyOpsIncGen
+
+# fast build rule for target.
+ToyOpsIncGen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ToyOpsIncGen.dir/build.make CMakeFiles/ToyOpsIncGen.dir/build
+.PHONY : ToyOpsIncGen/fast
+
+#=============================================================================
+# Target rules for targets named obj.MLIRToyDialect
+
+# Build rule for target.
+obj.MLIRToyDialect: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obj.MLIRToyDialect
+.PHONY : obj.MLIRToyDialect
+
+# fast build rule for target.
+obj.MLIRToyDialect/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj.MLIRToyDialect.dir/build.make CMakeFiles/obj.MLIRToyDialect.dir/build
+.PHONY : obj.MLIRToyDialect/fast
+
+#=============================================================================
+# Target rules for targets named MLIRToyDialect
+
+# Build rule for target.
+MLIRToyDialect: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MLIRToyDialect
+.PHONY : MLIRToyDialect
+
+# fast build rule for target.
+MLIRToyDialect/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLIRToyDialect.dir/build.make CMakeFiles/MLIRToyDialect.dir/build
+.PHONY : MLIRToyDialect/fast
+
+#=============================================================================
+# Target rules for targets named install-MLIRToyDialect
+
+# Build rule for target.
+install-MLIRToyDialect: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 install-MLIRToyDialect
+.PHONY : install-MLIRToyDialect
+
+# fast build rule for target.
+install-MLIRToyDialect/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect.dir/build.make CMakeFiles/install-MLIRToyDialect.dir/build
+.PHONY : install-MLIRToyDialect/fast
+
+#=============================================================================
+# Target rules for targets named install-MLIRToyDialect-stripped
+
+# Build rule for target.
+install-MLIRToyDialect-stripped: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 install-MLIRToyDialect-stripped
+.PHONY : install-MLIRToyDialect-stripped
+
+# fast build rule for target.
+install-MLIRToyDialect-stripped/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-MLIRToyDialect-stripped.dir/build.make CMakeFiles/install-MLIRToyDialect-stripped.dir/build
+.PHONY : install-MLIRToyDialect-stripped/fast
+
+#=============================================================================
 # Target rules for targets named mlir-example
 
 # Build rule for target.
@@ -257,29 +419,53 @@ src/deep_learning/dl_main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-dl-example.dir/build.make CMakeFiles/mlir-dl-example.dir/src/deep_learning/dl_main.cpp.s
 .PHONY : src/deep_learning/dl_main.cpp.s
 
-src/simple_main.o: src/simple_main.cpp.o
-.PHONY : src/simple_main.o
+src/dialect/toy/ToyDialect.o: src/dialect/toy/ToyDialect.cpp.o
+.PHONY : src/dialect/toy/ToyDialect.o
 
 # target to build an object file
-src/simple_main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/src/simple_main.cpp.o
-.PHONY : src/simple_main.cpp.o
+src/dialect/toy/ToyDialect.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj.MLIRToyDialect.dir/build.make CMakeFiles/obj.MLIRToyDialect.dir/src/dialect/toy/ToyDialect.cpp.o
+.PHONY : src/dialect/toy/ToyDialect.cpp.o
 
-src/simple_main.i: src/simple_main.cpp.i
-.PHONY : src/simple_main.i
+src/dialect/toy/ToyDialect.i: src/dialect/toy/ToyDialect.cpp.i
+.PHONY : src/dialect/toy/ToyDialect.i
 
 # target to preprocess a source file
-src/simple_main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/src/simple_main.cpp.i
-.PHONY : src/simple_main.cpp.i
+src/dialect/toy/ToyDialect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj.MLIRToyDialect.dir/build.make CMakeFiles/obj.MLIRToyDialect.dir/src/dialect/toy/ToyDialect.cpp.i
+.PHONY : src/dialect/toy/ToyDialect.cpp.i
 
-src/simple_main.s: src/simple_main.cpp.s
-.PHONY : src/simple_main.s
+src/dialect/toy/ToyDialect.s: src/dialect/toy/ToyDialect.cpp.s
+.PHONY : src/dialect/toy/ToyDialect.s
 
 # target to generate assembly for a file
-src/simple_main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/src/simple_main.cpp.s
-.PHONY : src/simple_main.cpp.s
+src/dialect/toy/ToyDialect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obj.MLIRToyDialect.dir/build.make CMakeFiles/obj.MLIRToyDialect.dir/src/dialect/toy/ToyDialect.cpp.s
+.PHONY : src/dialect/toy/ToyDialect.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mlir-example.dir/build.make CMakeFiles/mlir-example.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -288,22 +474,38 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... AArch64TargetParserTableGen"
 	@echo "... ARMTargetParserTableGen"
 	@echo "... RISCVTargetParserTableGen"
+	@echo "... ToyOpsIncGen"
 	@echo "... acc_gen"
+	@echo "... install-MLIRToyDialect"
+	@echo "... install-MLIRToyDialect-stripped"
 	@echo "... intrinsics_gen"
+	@echo "... mlir-doc"
+	@echo "... mlir-generic-headers"
+	@echo "... mlir-headers"
+	@echo "... mlir-tablegen-targets"
 	@echo "... omp_gen"
 	@echo "... vt_gen"
+	@echo "... MLIRToyDialect"
 	@echo "... mlir-dl-example"
 	@echo "... mlir-example"
+	@echo "... obj.MLIRToyDialect"
 	@echo "... src/deep_learning/dl_main.o"
 	@echo "... src/deep_learning/dl_main.i"
 	@echo "... src/deep_learning/dl_main.s"
-	@echo "... src/simple_main.o"
-	@echo "... src/simple_main.i"
-	@echo "... src/simple_main.s"
+	@echo "... src/dialect/toy/ToyDialect.o"
+	@echo "... src/dialect/toy/ToyDialect.i"
+	@echo "... src/dialect/toy/ToyDialect.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
